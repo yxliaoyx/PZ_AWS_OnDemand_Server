@@ -1,0 +1,8 @@
+[Unit]
+BindsTo=zomboid.service
+
+[Socket]
+ListenFIFO=/opt/pzserver/zomboid.control
+FileDescriptorName=control
+RemoveOnStop=true
+SocketMode=0660

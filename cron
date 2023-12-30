@@ -1,0 +1,1 @@
+*/10 * * * * root /bin/bash /opt/auto_shutdown.sh >> /opt/auto_shutdown.log 2>&1

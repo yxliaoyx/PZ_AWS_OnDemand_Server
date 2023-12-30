@@ -1,0 +1,15 @@
+[Unit]
+Description=Project Zomboid Server
+After=network.target
+
+[Service]
+PrivateTmp=true
+Type=simple
+WorkingDirectory=/opt/pzserver/
+ExecStart=/bin/sh -c "exec /opt/pzserver/start-server.sh -adminpassword ${ADMIN_PASSWORD} -Xmx${MAX_MEMORY} </opt/pzserver/zomboid.control"
+ExecStop=/bin/sh -c "echo save > /opt/pzserver/zomboid.control; sleep 15; echo quit > /opt/pzserver/zomboid.control"
+Sockets=zomboid.socket
+KillSignal=SIGCONT
+
+[Install]
+WantedBy=multi-user.target
